@@ -1,7 +1,7 @@
 import test from 'ava';
 import delay from 'delay';
-import PCancelable, {CancelError} from 'p-cancelable';
-import pSome, {AggregateError, FilterError} from './index.js';
+import PCancelable, {CancelError} from '@esm2cjs/p-cancelable';
+import pSome, {AggregateError, FilterError} from './esm/index.js';
 
 test('reject with RangeError when fulfillment is impossible', async t => {
 	await t.throwsAsync(pSome([], {count: 1}), {instanceOf: RangeError});

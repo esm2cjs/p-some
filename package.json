@@ -1,17 +1,21 @@
 {
-	"name": "p-some",
+	"name": "@esm2cjs/p-some",
 	"version": "6.0.0",
-	"description": "Wait for a specified number of promises to be fulfilled",
+	"description": "Wait for a specified number of promises to be fulfilled. This is a fork of sindresorhus/p-some, but with CommonJS support.",
 	"license": "MIT",
-	"repository": "sindresorhus/p-some",
-	"funding": "https://github.com/sponsors/sindresorhus",
+	"repository": "esm2cjs/p-some",
+	"funding": "https://github.com/sponsors/AlCalzone",
 	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
+		"name": "Dominic Griesel",
+		"email": "d.griesel@gmx.net"
 	},
-	"type": "module",
-	"exports": "./index.js",
+	"exports": {
+		".": {
+			"import": "./esm/index.js",
+			"require": "./cjs/index.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"engines": {
 		"node": ">=12.20"
 	},
@@ -19,8 +23,8 @@
 		"test": "xo && ava && tsd"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts"
+		"cjs/",
+		"esm/"
 	],
 	"keywords": [
 		"promise",
@@ -39,13 +43,39 @@
 		"bluebird"
 	],
 	"dependencies": {
-		"aggregate-error": "^4.0.0",
-		"p-cancelable": "^3.0.0"
+		"@esm2cjs/aggregate-error": "^4.0.0",
+		"@esm2cjs/p-cancelable": "^3.0.0"
 	},
 	"devDependencies": {
 		"ava": "^3.15.0",
 		"delay": "^5.0.0",
 		"tsd": "^0.16.0",
 		"xo": "^0.40.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "cjs/index.js",
+	"module": "esm/index.js",
+	"types": "esm/index.d.ts",
+	"typesVersions": {
+		"*": {
+			"esm/index.d.ts": [
+				"esm/index.d.ts"
+			],
+			"cjs/index.d.ts": [
+				"esm/index.d.ts"
+			],
+			"*": [
+				"esm/*"
+			]
+		}
+	},
+	"xo": {
+		"ignores": [
+			"cjs",
+			"**/*.test-d.ts",
+			"**/*.d.ts"
+		]
 	}
 }

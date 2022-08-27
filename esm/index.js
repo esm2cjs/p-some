@@ -1,5 +1,5 @@
-import AggregateError from 'aggregate-error';
-import PCancelable from 'p-cancelable';
+import AggregateError from '@esm2cjs/aggregate-error';
+import PCancelable from '@esm2cjs/p-cancelable';
 
 export class FilterError extends Error {}
 

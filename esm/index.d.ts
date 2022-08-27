@@ -1,4 +1,4 @@
-import PCancelable from 'p-cancelable';
+import PCancelable from '@esm2cjs/p-cancelable';
 
 export type Value<T> = T | PromiseLike<T>;
 export type CancelablePromise<T> = PCancelable<T>;
@@ -48,4 +48,4 @@ export default function pSome<T>(
 	options: Options<T>
 ): CancelablePromise<T[]>;
 
-export {default as AggregateError} from 'aggregate-error';
+export {default as AggregateError} from '@esm2cjs/aggregate-error';
